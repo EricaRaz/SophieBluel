@@ -1,3 +1,11 @@
+// Import de la fonction "editMode" à partir de "editMode.js" permettant d'actualiser la page INDEX.HTML si authentifié.
+import { editPage } from "./login.js";
+
+// Export de la fonction "generateGallery" dans "modale.js"
+// pour actualisation de l'affichage des "Galleries"
+// après ajout ou suppression d'un projet.
+export { generateGallery };
+
 // Récupération des datas "WORKS" depuis l'API.
 const worksAPI = await fetch("http://localhost:5678/api/works");
 const works = await worksAPI.json();
@@ -59,3 +67,5 @@ function filterCategory(categoryBtnId) {
     generateGallery(filteredWorks);
   }
 }
+
+editPage();

@@ -23,7 +23,7 @@ form.addEventListener("submit", async function (event) {
     localStorage.setItem("token", token);
     localStorage.setItem("state", state);
     window.location.replace("index.html");
-    console.log("Connexion réussie !");
+    console.log("Connexion réussie!");
     // Traitement de la réponse si la connexion échoue
   } else {
     localStorage.setItem("state", state);
@@ -31,4 +31,38 @@ form.addEventListener("submit", async function (event) {
     notif.innerText = "Veuillez vérifier votre e-mail et votre mot de passe.";
     console.log("Erreur de connexion!");
   }
+});
+
+// Fonction pour récupérer les informations d'authentification à partir du "sessionStorage" et test pour appeler la fonction "editModeActivation" si authentifié.
+export function editPage() {
+  const state = localStorage.getItem("state");
+
+  if (state === "true") {
+    editModeActivation("flex");
+    document.getElementById("loginSwitch").style.display = "none";
+  } else {
+    editModeActivation("none");
+  }
+}
+
+// Fonction d'actualisation de la page INDEX.HTML en "MODE EDITION" (si authentifié).
+function editModeActivation(state) {
+  const editMode = document.querySelectorAll(".editMode");
+
+  for (let i of editMode) {
+    i.style.display = state;
+  }
+}
+
+//Fonction deconnexion
+const logoutBtn = document.getElementById("logoutSwitch");
+
+logoutBtn.addEventListener("click", function () {
+  const token = localStorage.getItem("token");
+  const state = localStorage.getItem("state");
+
+  localStorage.removeItem("token");
+  localStorage.removeItem("state");
+  editModeActivation("none");
+  document.getElementById("loginSwitch").style.display = "flex";
 });

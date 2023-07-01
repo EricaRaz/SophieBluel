@@ -90,12 +90,73 @@ h2{
 	color: #1D6154
 }
 
+/* <div class="edition-banner edit-mode"> */
+
+.edition-banner {
+	height: 60px;
+	justify-content: center;
+	align-items: center;
+	gap: 1%;
+	background-color: #000000;
+	color: #FFFFFF;
+}
+
+.editMode {
+	display: none;
+}
+
+.logout {
+	cursor: pointer;
+}
+
+.editMode i {
+	margin-right: 5px;
+	font-size: 16px;
+}
+
+.btn-edition {
+	background-color: #FFFFFF;
+	color: #000000;
+	height: 38px;
+	border-radius: 19px;
+	padding: 0 15px 0 15px;
+	font-size: 14px;
+	font-weight: 500;
+	font-family: "Work Sans";
+}
+
+button {
+	background-color: #FFFEF8;
+	border: none;
+	font-family: "Work sans";
+	font-size: 14px;
+	padding: 10px 0 10px 0;
+}
+
+.edit-introductionFigure {
+	width: 80%;
+	margin: auto;
+}
+
+.edit-portfolioTitle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: auto;
+	gap: 2%;
+}
+
+.edit-portfolioTitle button {
+	margin: 0;
+}
+
 /* <header> */
 
 header {
+	width: 90%;
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0
+	margin: 50px auto;
 }
 
 /* <nav> */
@@ -127,6 +188,8 @@ section {
 #introduction {
 	display: flex;
 	align-items: center;
+	width: 87%;
+	margin: auto;
 }
 
 #introduction figure {
@@ -194,7 +257,8 @@ input[type="submit"]:active {
 /* <div class="gallery"></div> */
 
 .gallery {
-	width: 100%;
+	width: 80%;
+	margin: auto;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-column-gap: 20px;
@@ -272,7 +336,8 @@ form a {
 /* <footer> */
 footer {
 	background-color: white;
-	width: 1140px;
+	width: 100%;
+	padding: 2px;
 }
 
 footer nav ul {
@@ -281,10 +346,5 @@ footer nav ul {
 	margin: 2em
 }
 
-/* .loginFooter {
-	/* position: fixed; */
-	/* bottom: 0;
-	margin: auto;
-	width: 1140px;
-} */
+
 
