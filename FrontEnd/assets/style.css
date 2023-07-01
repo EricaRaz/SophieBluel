@@ -28,15 +28,20 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
 	line-height: 1;
+	background-color: #FFFEF8;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
@@ -208,29 +213,31 @@ input[type="submit"]:active {
 	margin: auto;
 }
 
-#contact > * {
+#contact > *, .login>* {
 	text-align: center;
 
 }
 #contact h2{
 	margin-bottom: 20px;
 }
-#contact form {
+#contact form, .login form {
 	text-align: left;
 	margin-top:30px;
 	display: flex;
 	flex-direction: column;
 }
 
-#contact input {
+#contact input, .login input {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label {
+
+#contact label, .login label {
 	margin: 2em 0 1em 0;
 }
+
 #contact textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
@@ -245,12 +252,39 @@ input[type="submit"]{
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
+	cursor: pointer;
+}
+
+/* dans login.html */
+.login {
+	width: 35%;
+	margin: auto;
+}
+
+.loginLink {
+	font-weight: 600;
+}
+
+form a {
+	margin: auto;
 }
 
 /* <footer> */
+footer {
+	background-color: white;
+	width: 1140px;
+}
 
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em
 }
+
+/* .loginFooter {
+	/* position: fixed; */
+	/* bottom: 0;
+	margin: auto;
+	width: 1140px;
+} */
+
