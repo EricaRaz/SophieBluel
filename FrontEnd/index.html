@@ -27,15 +27,15 @@
 	<div class="modal">
 
 		<!-- Homepage edit_1 -->
-		<div class="homepage_edit1">  
+		<div class="homepage_edit_1">  
 			<div class="closeBtnEdit1">  
 				<button class="closeBtn"><i class="fa-solid fa-xmark"></i></button>
 			</div>
-			<!-- Gallerie des projets -->
+			<!-- Galerie des projets -->
 			<div class="galleryEdit1">
 				<h3>Galerie photo</h3>
 				<div class="modalGridGallery">
-					<!-- Gallerie injecté via "gallery.js" -->
+					<!-- Galerie injecté via "gallery.js" -->
 				</div>
 			</div>
 			<hr>
@@ -43,11 +43,50 @@
 			<br>
 			<button class="deleteBtn"> Supprimer la galerie </button>
 		</div>
+
+		<!--homepage_edit_2_3-->
+		<div class="homepage_edit_2_3">  
+			<div class="back-closeBtn">
+				<!-- Bouton pour retourner sur la partie "GALERIE / SUPRESSION DE PROJET" de la "MODALE"-->
+				<button class="backBtn"><i class="fa-solid fa-arrow-left-long"></i></button>
+				<!-- Bouton pour fermer la modale -->
+				<button class="closeBtn"><i class="fa-solid fa-xmark"></i></button>
+			</div>
+			
+			<!--homepage_edit_2-->
+			<div class="homepage_edit_2"> 
+				<h3>Ajout photo</h3>
+				<!-- Formulaire "Ajout de projet"-->
+				<form id="addProject">
+					<div class="add-file">
+						<div id="add-fileInputContainer">
+							<i class="fa-regular fa-image add-fileIcon"></i>
+							<label for="add-fileInput" class="add-fileBtn"> + Ajouter photo </label>
+							<p class="add-fileInstruction">jpg, png : 4mo max</p>
+							
+						</div>
+						
+						<!-- <button class="add-fileBtn"> + Ajouter photo </button> -->
+						<input type="file" name="add-fileInput" id="add-fileInput" required accept=".jpg, .png">
+					</div>
+					<label for="project-title">Titre</label>
+					<input type="text" name="project-title" id="project-title" required>
+					<label for="project-category">Catégorie</label>
+					<select name="project-category" id="project-category" required>
+						<option value=""></option>
+						<!-- homepage_edit_3 Insertion des "Categories" via "MODALE.JS" -->
+					</select>
+					<hr>
+					<button class="validationBtn">Valider</button> <!--editValidation-->
+				</form>
+			</div>
+
+		</div>
 		
 	</div>
 
 	<header>
-		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+		<h1>Sophie Bluel <span>ARCHITECTE D'INTÉRIEUR</span></h1>
 		<nav>
 			<ul>
 				<li><a href="#portfolio">projets</a></li>
@@ -57,7 +96,7 @@
 				<!-- Switch et ajout editMode -->
 				<li id="logoutSwitch" class="logout editMode">logout</li>
 
-				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+				<li><img class="instagram" src="./assets/icons/instagram.png" alt="Instagram"></li>
 			</ul>
 		</nav>
 	</header>

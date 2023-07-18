@@ -1,26 +1,16 @@
-// Import de la fonction "editMode" à partir de "editMode.js" permettant d'actualiser la page INDEX.HTML si authentifié.
+import { works } from "./apiFetch.js";
+import { categories } from "./apiFetch.js";
 import { editPage } from "./login.js";
+import { modal } from "./modal.js";
 
-// Export de la fonction "generateGallery" dans "modale.js"
-// pour actualisation de l'affichage des "Galleries"
-// après ajout ou suppression d'un projet.
+/* Export de la fonction "generateGallery" dans "modale.js"
+pour actualisation de l'affichage des "Galleries"
+après ajout ou suppression d'un projet.*/
 export { generateGallery };
 
-// Récupération des datas "WORKS" depuis l'API.
-const worksAPI = await fetch("http://localhost:5678/api/works");
-const works = await worksAPI.json();
-export { works };
-console.log(works);
-
-// Récupération des datas "CATEGORIES" depuis l'API.
-const categoriesAPI = await fetch("http://localhost:5678/api/categories");
-const categories = await categoriesAPI.json();
-export { categories };
-console.log(categories);
-
-// Fonction qui génère la gallerie
-function generateGallery(worksArray) {
-  for (let i of worksArray) {
+// Fonction qui génère la galerie
+function generateGallery(works) {
+  for (let i of works) {
     const gallery = document.querySelector(".gallery");
     const figure = document.createElement("figure");
     figure.dataset.id = i.id;
@@ -38,7 +28,8 @@ function generateGallery(worksArray) {
 
 generateGallery(works);
 
-// Filtres
+/* ------Filtres------ */
+
 const categoryTous = { id: 0, name: "Tous" };
 categories.unshift(categoryTous);
 
@@ -53,7 +44,7 @@ for (let i of categories) {
   filterCategories.appendChild(btnCategories);
 }
 
-// Fonction qui filtre la gallerie avec les boutons.
+// Fonction qui filtre la galerie avec les boutons.
 function filterCategory(categoryBtnId) {
   if (categoryBtnId == categoryTous.id) {
     document.querySelector(".gallery").innerHTML = "";
@@ -68,4 +59,39 @@ function filterCategory(categoryBtnId) {
   }
 }
 
-editPage();
+// ---------------Changement de couleur au click sur les boutons filtres---------------
+
+// Sélection de tous les boutons
+const buttons = document.querySelectorAll(".filtersGallery button");
+
+// Parcours tous les <button>
+for (let i of buttons) {
+  // Ajout d'une class "filter-selected" pour chaque "buttons"
+  i.classList.add("filter-selected");
+}
+
+// Fonction pour réinitialiser le style de tous les boutons
+function resetButtonColors() {
+  // "button" parcours chaque élement de "buttons"
+  for (let button of buttons) {
+    // Les boutons non concernés par le click prendront ce style :
+    button.style.backgroundColor = "white";
+    button.style.color = "#1D6154";
+  }
+}
+
+// "button" parcours chaque élement de "buttons"
+for (let button of buttons) {
+  // Chaque "button" au click
+  button.addEventListener("click", function () {
+    // Appel de la fonction "resetButtonColors()" qui va réinitialiser le style
+    resetButtonColors();
+    // Changement de style au bouton cliqué :
+    button.style.backgroundColor = "#1D6154";
+    button.style.color = "white";
+  });
+}
+
+editPage(); // permet d'actualiser la page INDEX.HTML si authentifié
+
+modal(); // permet de gérer les projets si authentifié
