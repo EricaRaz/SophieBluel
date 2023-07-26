@@ -101,8 +101,10 @@ async function deletePhoto(workId) {
       headers: { Authorization: "Bearer " + token },
     }
   );
-  // Si réponse de suppression de l'API est OK, alors on supprime la photo de la gallerie et de la modale
+
+  // Si réponse de suppression de l'API est OK, alors on supprime la photo de la galerie et de la modale
   if (deleteResponse.ok) {
+    // Récupération de l'Id sélectionné (projet)
     const photoToRemove = document.querySelectorAll(
       `figure[data-id="${workId}"]`
     );
@@ -111,7 +113,7 @@ async function deletePhoto(workId) {
     }
     // Suppression de l'élément du tableau "works" correspondant à l'ID de la photo
     const photoIndexToRemove = works.findIndex((work) => workId === work.id);
-    // Supprime l'élément du tableau "works" à l'index "workIndexToRemove", "1" élément
+    // Supprime l'élément du tableau "works" à l'index "photoIndexToRemove", "1" élément
     works.splice(photoIndexToRemove, 1);
   } else {
     return alert("Échec suppression");

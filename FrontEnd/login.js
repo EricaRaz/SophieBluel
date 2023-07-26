@@ -14,7 +14,7 @@ form.addEventListener("submit", async function (event) {
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(userInfos), // datas récupérées en format json.
+      body: JSON.stringify(userInfos), // Création de la charge utile au format JSON
     }
   );
 
